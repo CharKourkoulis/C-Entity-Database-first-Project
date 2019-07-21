@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="privateschoolModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="assignments">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="description" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="subdatetime" Type="date" Nullable="false" />
+    <Property Name="oralmark" Type="int" />
+    <Property Name="totalmark" Type="int" />
+    <Property Name="courseid" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="assignmentsperstudent">
+    <Key>
+      <PropertyRef Name="studentid" />
+      <PropertyRef Name="assignid" />
+    </Key>
+    <Property Name="studentid" Type="int" Nullable="false" />
+    <Property Name="assignid" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="courses">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="stream" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="start_date" Type="date" Nullable="false" />
+    <Property Name="end_date" Type="date" Nullable="false" />
+    <Property Name="type" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="students">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="firstname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="lastname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="dateofbirth" Type="date" Nullable="false" />
+    <Property Name="tuitionfees" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="studentspercourse">
+    <Key>
+      <PropertyRef Name="studentid" />
+      <PropertyRef Name="courseid" />
+    </Key>
+    <Property Name="studentid" Type="int" Nullable="false" />
+    <Property Name="courseid" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="trainers">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="firstname" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="lastname" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="subject" Type="varchar" MaxLength="50" />
+    <Property Name="courseid" Type="int" />
+  </EntityType>
+  <Association Name="fk_assign_id2">
+    <End Role="assignments" Type="Self.assignments" Multiplicity="1" />
+    <End Role="assignmentsperstudent" Type="Self.assignmentsperstudent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="assignments">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="assignmentsperstudent">
+        <PropertyRef Name="assignid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_course_id_3">
+    <End Role="courses" Type="Self.courses" Multiplicity="1" />
+    <End Role="studentspercourse" Type="Self.studentspercourse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="courses">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="studentspercourse">
+        <PropertyRef Name="courseid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_courseid1">
+    <End Role="courses" Type="Self.courses" Multiplicity="0..1" />
+    <End Role="trainers" Type="Self.trainers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="courses">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="trainers">
+        <PropertyRef Name="courseid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_courseid2">
+    <End Role="courses" Type="Self.courses" Multiplicity="1" />
+    <End Role="assignments" Type="Self.assignments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="courses">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="assignments">
+        <PropertyRef Name="courseid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_student_id_3">
+    <End Role="students" Type="Self.students" Multiplicity="1" />
+    <End Role="studentspercourse" Type="Self.studentspercourse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="students">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="studentspercourse">
+        <PropertyRef Name="studentid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_student_id2">
+    <End Role="students" Type="Self.students" Multiplicity="1" />
+    <End Role="assignmentsperstudent" Type="Self.assignmentsperstudent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="students">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="assignmentsperstudent">
+        <PropertyRef Name="studentid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="privateschoolModelStoreContainer">
+    <EntitySet Name="assignments" EntityType="Self.assignments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="assignmentsperstudent" EntityType="Self.assignmentsperstudent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="courses" EntityType="Self.courses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="students" EntityType="Self.students" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="studentspercourse" EntityType="Self.studentspercourse" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="trainers" EntityType="Self.trainers" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="fk_assign_id2" Association="Self.fk_assign_id2">
+      <End Role="assignments" EntitySet="assignments" />
+      <End Role="assignmentsperstudent" EntitySet="assignmentsperstudent" />
+    </AssociationSet>
+    <AssociationSet Name="fk_course_id_3" Association="Self.fk_course_id_3">
+      <End Role="courses" EntitySet="courses" />
+      <End Role="studentspercourse" EntitySet="studentspercourse" />
+    </AssociationSet>
+    <AssociationSet Name="fk_courseid1" Association="Self.fk_courseid1">
+      <End Role="courses" EntitySet="courses" />
+      <End Role="trainers" EntitySet="trainers" />
+    </AssociationSet>
+    <AssociationSet Name="fk_courseid2" Association="Self.fk_courseid2">
+      <End Role="courses" EntitySet="courses" />
+      <End Role="assignments" EntitySet="assignments" />
+    </AssociationSet>
+    <AssociationSet Name="fk_student_id_3" Association="Self.fk_student_id_3">
+      <End Role="students" EntitySet="students" />
+      <End Role="studentspercourse" EntitySet="studentspercourse" />
+    </AssociationSet>
+    <AssociationSet Name="fk_student_id2" Association="Self.fk_student_id2">
+      <End Role="students" EntitySet="students" />
+      <End Role="assignmentsperstudent" EntitySet="assignmentsperstudent" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,12 @@
+C:\Users\cult_\OneDrive\Desktop\Assignment_Part_B\PrivateSchoolPartB\PrivateSchoolPartB\obj\Debug\PrivateSchoolPartB.csprojAssemblyReference.cache
+C:\Users\cult_\OneDrive\Desktop\Assignment_Part_B\PrivateSchoolPartB\PrivateSchoolPartB\obj\Debug\PrivateSchoolPartB.csproj.CoreCompileInputs.cache
+C:\Users\cult_\OneDrive\Desktop\Assignment_Part_B\PrivateSchoolPartB\PrivateSchoolPartB\bin\Debug\PrivateSchoolPartB.exe.config
+C:\Users\cult_\OneDrive\Desktop\Assignment_Part_B\PrivateSchoolPartB\PrivateSchoolPartB\bin\Debug\PrivateSchoolPartB.exe
+C:\Users\cult_\OneDrive\Desktop\Assignment_Part_B\PrivateSchoolPartB\PrivateSchoolPartB\bin\Debug\PrivateSchoolPartB.pdb
+C:\Users\cult_\OneDrive\Desktop\Assignment_Part_B\PrivateSchoolPartB\PrivateSchoolPartB\obj\Debug\PrivateSchoolPartB.exe
+C:\Users\cult_\OneDrive\Desktop\Assignment_Part_B\PrivateSchoolPartB\PrivateSchoolPartB\obj\Debug\PrivateSchoolPartB.pdb
+C:\Users\cult_\OneDrive\Desktop\Assignment_Part_B\PrivateSchoolPartB\PrivateSchoolPartB\bin\Debug\EntityFramework.dll
+C:\Users\cult_\OneDrive\Desktop\Assignment_Part_B\PrivateSchoolPartB\PrivateSchoolPartB\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\cult_\OneDrive\Desktop\Assignment_Part_B\PrivateSchoolPartB\PrivateSchoolPartB\bin\Debug\EntityFramework.xml
+C:\Users\cult_\OneDrive\Desktop\Assignment_Part_B\PrivateSchoolPartB\PrivateSchoolPartB\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\cult_\OneDrive\Desktop\Assignment_Part_B\PrivateSchoolPartB\PrivateSchoolPartB\obj\Debug\PrivateSchoolPartB.csproj.CopyComplete

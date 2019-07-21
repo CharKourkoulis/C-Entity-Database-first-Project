@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="privateschoolModelStoreContainer" CdmEntityContainer="privateschoolEntities">
+    <EntitySetMapping Name="assignments">
+      <EntityTypeMapping TypeName="privateschoolModel.assignments">
+        <MappingFragment StoreEntitySet="assignments">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="subdatetime" ColumnName="subdatetime" />
+          <ScalarProperty Name="oralmark" ColumnName="oralmark" />
+          <ScalarProperty Name="totalmark" ColumnName="totalmark" />
+          <ScalarProperty Name="courseid" ColumnName="courseid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="courses">
+      <EntityTypeMapping TypeName="privateschoolModel.courses">
+        <MappingFragment StoreEntitySet="courses">
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="stream" ColumnName="stream" />
+          <ScalarProperty Name="start_date" ColumnName="start_date" />
+          <ScalarProperty Name="end_date" ColumnName="end_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="students">
+      <EntityTypeMapping TypeName="privateschoolModel.students">
+        <MappingFragment StoreEntitySet="students">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="dateofbirth" ColumnName="dateofbirth" />
+          <ScalarProperty Name="tuitionfees" ColumnName="tuitionfees" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="trainers">
+      <EntityTypeMapping TypeName="privateschoolModel.trainers">
+        <MappingFragment StoreEntitySet="trainers">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="subject" ColumnName="subject" />
+          <ScalarProperty Name="courseid" ColumnName="courseid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="assignmentsperstudent" TypeName="privateschoolModel.assignmentsperstudent" StoreEntitySet="assignmentsperstudent">
+      <EndProperty Name="assignments">
+        <ScalarProperty Name="id" ColumnName="assignid" />
+      </EndProperty>
+      <EndProperty Name="students">
+        <ScalarProperty Name="id" ColumnName="studentid" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="studentspercourse" TypeName="privateschoolModel.studentspercourse" StoreEntitySet="studentspercourse">
+      <EndProperty Name="courses">
+        <ScalarProperty Name="id" ColumnName="courseid" />
+      </EndProperty>
+      <EndProperty Name="students">
+        <ScalarProperty Name="id" ColumnName="studentid" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>
